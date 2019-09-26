@@ -1,0 +1,23 @@
+*{
+    font-family: 'Mansalva', cursive;
+}
+
+.titulo-index{
+    color: blue;
+    font-size: 40pt;
+}
+.inspiracao{
+    text-decoration: none;
+    font-size: 15pt;
+    color: rgb(251, 82, 251 0.23);
+} 
+label{
+    font-size: 15pt;
+}
+input{
+    height: 50px;
+}
+.mindset{
+    margin: 20px;
+    width: 20%;;
+}
