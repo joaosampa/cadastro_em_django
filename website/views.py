@@ -20,9 +20,15 @@ def index(request):
 
 def listar_coachs(request):
     listar_coachs = Coach.objects.filter(ativo=True).all()
-    args = {
-        'listar_coachs': listar_coachs
-    }
+    args = None
+    if listar_coachs.first() is None:
+        args = {
+            'msg': 'OPS, não há ninguem aqui cadastrado'
+        }
+    else:
+        args = {
+            'listar_coachs': listar_coachs
+        }
     return render(request, 'listar_coachs.html', args) 
 
 def delete_coach(request, id):
@@ -30,5 +36,11 @@ def delete_coach(request, id):
     if item is not None:
         item.ativo = False
         item.save()
-        return redirect ('/coachs/listar')
-    return render (request, 'listar_coachs.html', {'msg': 'se fodeu'})
+
+        listar_coachs = Coach.objects.filter(ativo=True).all()
+        args = {
+            'listar_coachs': listar_coachs,
+            'msg': 'Você deletou esse item'
+        }
+        return render(request, 'listar_coachs.html', args) 
+    return redirect('/')
