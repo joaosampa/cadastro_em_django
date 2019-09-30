@@ -14,6 +14,6 @@ class Coach(models.Model):
 
 class User(models.Model):
     email = models.EmailField(max_length=16, verbose_name="Email", unique=True)
-    senha = models.Charfield(max_length=16, verbose_name="Senha")
+    senha = models.CharField(max_length=16, verbose_name="Senha")
 
     # relação 1 para 1 ForeignKey, otimizar o banco de dados
