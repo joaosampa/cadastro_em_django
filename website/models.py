@@ -12,9 +12,8 @@ class Coach(models.Model):
     def __str__(self):
         return self.nome
 
-# class User(models.Model):
-#     nome = models.ForeignKey(Coach, on_delet=None)
-#     email = models.EmailField(max_length=16, verbose_name="Email")
-#     senha = models.Charfield(max_length=16, verbose_name="Senha")
+class User(models.Model):
+    email = models.EmailField(max_length=16, verbose_name="Email", unique=True)
+    senha = models.Charfield(max_length=16, verbose_name="Senha")
 
     # relação 1 para 1 ForeignKey, otimizar o banco de dados
